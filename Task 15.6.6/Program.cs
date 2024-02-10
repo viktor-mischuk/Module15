@@ -8,13 +8,13 @@
         {
             static void Main(string[] args)
             {
-                var classes = new[]
+            var classes = new[]
                 {
                new Classroom { Students = {"Evgeniy", "Sergey", "Andrew"}, },
                new Classroom { Students = {"Anna", "Viktor", "Vladimir"}, },
                new Classroom { Students = {"Bulat", "Alex", "Galina"}, }
            };
-                var allStudents = GetAllStudents(classes);
+            var allStudents = GetAllStudents(classes);
 
                 Console.WriteLine(string.Join(" ", allStudents));
                 Console.ReadKey();
@@ -22,6 +22,7 @@
 
             static string[] GetAllStudents(Classroom[] classes)
             {
+            if (classes == null || classes.Length == 0) return new string[] {"Нет данных"};
             //Напишите метод, который соберет всех учеников всех классов в один список, используя LINQ    
             return classes.SelectMany(x => x.Students).ToArray();
             }
